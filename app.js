@@ -19,10 +19,10 @@ app.use((req, res, next) => {
 const port = process.env.PORT || 9090;
 
 // http://localhost:8080/api/v1
-// app.use("/api/v1", require("./v1"));
-app.get("/",(req,res)=>{
-    res.status(200).send("welcome to sever")
-})
+app.use("/api/v1", require("./v1"));
+app.get("/", (req, res) => {
+  res.status(200).send("welcome to sever");
+});
 app.listen(port, () => {
   console.log(`severe is listing on port ${port}`);
 });
