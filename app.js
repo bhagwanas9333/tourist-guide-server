@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config({
   path: "./config/.env",
 });
+
 const app = express();
 
 app.use(cors());
@@ -20,6 +21,7 @@ const port = process.env.PORT || 9090;
 
 // http://localhost:8888/api/v1
 app.use("/api/v1", require("./v1"));
+
 app.get("/", (req, res) => {
   res.status(200).send("welcome to sever");
 });
