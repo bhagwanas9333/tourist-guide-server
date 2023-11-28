@@ -22,7 +22,7 @@ const placeService = {
     return result;
   }, //getOne
   async getAll(query) {
-    const filter = { status: 1 };
+    const filter = {};
     const result = await placeModel.find(filter);
     return result;
   }, //getAll
