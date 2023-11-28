@@ -15,6 +15,7 @@ router.post(
   updateFileName("avatar", "avatar"),
   handleCreate
 );
+
 router.put(
   "/:id",
   fileUploader("avatar").single("avatar"),
