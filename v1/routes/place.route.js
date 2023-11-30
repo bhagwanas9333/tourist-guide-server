@@ -8,18 +8,18 @@ const {
 } = require("../controllers/place.contoller");
 const fileUploader = require("../helpers/middlewares/fileUploader");
 const multiFileUploader = require("../helpers/middlewares/multiFileUploader");
-const updateFileName = require("../helpers/middlewares/updateFileName");
+const multiUpdateFileName = require("../helpers/middlewares/multiUpdateFileName");
 
 router.post(
   "/",
-  fileUploader("places").single("picture"),
-  updateFileName("picture", "places"),
+  multiFileUploader("places", "pictures"),
+  multiUpdateFileName("pictures", "places"),
   handleCreate
 );
 router.put(
   "/:id",
-  fileUploader("places").single("picture"),
-  updateFileName("picture", "places"),
+  multiFileUploader("places", "pictures"),
+  multiUpdateFileName("pictures", "places"),
   handleUpdate
 );
 router.delete("/:id", handleDelete);
