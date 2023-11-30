@@ -1,7 +1,8 @@
 const multer = require("multer");
 const { extname } = require("path");
 
-const multiFileUploader = (dir, field) => {
+
+const multiFileUploader = (dir,field) => {
   console.log("field", field);
 
   const storage = multer.diskStorage({
