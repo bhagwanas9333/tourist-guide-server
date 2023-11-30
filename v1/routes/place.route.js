@@ -7,6 +7,7 @@ const {
   handleGetAll,
 } = require("../controllers/place.contoller");
 const fileUploader = require("../helpers/middlewares/fileUploader");
+const multiFileUploader = require("../helpers/middlewares/multiFileUploader");
 const updateFileName = require("../helpers/middlewares/updateFileName");
 
 router.post(
