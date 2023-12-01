@@ -1,7 +1,7 @@
 const updateFileName = (field, path) => {
   return (req, res, next) => {
     if (req?.file) {
-      req.body[field] = `${path}/${req?.file.fileName}`;
+      req.body[field] = `${path}/${req?.file.filename}`;
     }
     next();
   };
