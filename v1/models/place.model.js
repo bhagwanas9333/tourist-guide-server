@@ -22,6 +22,7 @@ const placeSchema = new mongoose.Schema({
       review: String,
     },
   ],
+  status: Number,
   pictures: [String],
   createdAt: { type: Date, default: Date.now() },
 });
