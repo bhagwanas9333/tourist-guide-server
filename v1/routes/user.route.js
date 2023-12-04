@@ -14,7 +14,7 @@ router.post(
   "/",
   fileUploader("avatar").single("avatar"),
   updateFileName("avatar", "avatar"),
-  // authorize(["superadmin", "admin"]),
+  authorize(["superadmin"]),
   handleCreate
 );
 
@@ -22,23 +22,11 @@ router.put(
   "/:id",
   fileUploader("avatar").single("avatar"),
   updateFileName("avatar", "avatar"),
-  // authorize(["superadmin", "admin"]),
+  authorize(["superadmin", "admin"]),
   handleUpdate
 );
-router.delete(
-  "/:id",
-  // authorize(["superadmin", "admin"]),
-  handleDelete
-);
-router.get(
-  "/:id",
-  // authorize(["superadmin", "admin"]),
-  handleGetOne
-);
-router.get(
-  "/",
-  // authorize(["superadmin", "admin"]),
-  handleGetAll
-);
+router.delete("/:id", authorize(["superadmin", "admin"]), handleDelete);
+router.get("/:id", authorize(["superadmin", "admin"]), handleGetOne);
+router.get("/", authorize(["superadmin", "admin"]), handleGetAll);
 
 module.exports = router;

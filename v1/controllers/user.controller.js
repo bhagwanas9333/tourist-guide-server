@@ -68,7 +68,7 @@ const userCtrl = {
       .then((result) => {
         res
           ?.status(200)
-          .send({ message: message?.USER_FETCH_ALL_FAILED, data: result });
+          .send({ message: message?.USER_FETCH_ALL_SUCCESS, data: result });
       })
       .catch((error) => {
         console.error(error);
