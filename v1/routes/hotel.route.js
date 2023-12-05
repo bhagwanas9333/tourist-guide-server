@@ -5,21 +5,21 @@ const {
   handleUpdate,
   handleGetOne,
   handleGetAll,
-} = require("../controllers/place.contoller");
+} = require("../controllers/hotel.controller");
+
 const fileUploader = require("../helpers/middlewares/fileUploader");
-const multiFileUploader = require("../helpers/middlewares/multiFileUploader");
-const multiUpdateFileName = require("../helpers/middlewares/multiUpdateFileName");
+const updateFileName = require("../helpers/middlewares/updateFileName");
 
 router.post(
   "/",
-  multiFileUploader("places", "pictures"),
-  multiUpdateFileName("pictures", "places"),
+  fileUploader("hotels").single("picture"),
+  updateFileName("picture", "hotels"),
   handleCreate
 );
 router.put(
   "/:id",
-  multiFileUploader("places", "pictures"),
-  multiUpdateFileName("pictures", "places"),
+  fileUploader("hotels").single("picture"),
+  updateFileName("picture", "hotels"),
   handleUpdate
 );
 router.delete("/:id", handleDelete);

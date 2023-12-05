@@ -31,7 +31,6 @@ const pickUser = (user) => {
     "email",
     "status",
     "avatar",
-    "password",
     "role",
     "createdAt",
   ]);
