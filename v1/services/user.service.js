@@ -1,7 +1,7 @@
 const _ = require("lodash");
 const { encrypt } = require("../helpers/encryption");
 
-const { userModule, pickUser } = require("../models//user.model");
+const { userModule, pickUser } = require("../models/user.model");
 
 const userService = {
   async create(user) {
