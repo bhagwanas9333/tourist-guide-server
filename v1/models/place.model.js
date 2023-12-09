@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const _= require("lodash");
+const _ = require("lodash");
 const Autoincrement = require("mongoose-sequence")(mongoose);
 const placeSchema = new mongoose.Schema({
   placeId: Number,
@@ -9,7 +9,7 @@ const placeSchema = new mongoose.Schema({
   category: String,
   about: String,
   timeToVisit: String,
-  specialFood: String,
+  food: String,
   location: [
     {
       lat: Number,
@@ -23,7 +23,7 @@ const placeSchema = new mongoose.Schema({
     },
   ],
   status: Number,
-  pictures: [String],
+  pictures: String,
   createdAt: { type: Date, default: Date.now() },
 });
 
