@@ -32,4 +32,11 @@ const pickUser = (user) => {
   ]);
 };
 
-module.exports = { userModule, pickUser };
+const counterSchema = {
+  id: { type: String },
+  seq: { type: Number },
+};
+
+const counterModel = mongoose.model("Counter", counterSchema);
+
+module.exports = { userModule, pickUser, counterModel };
