@@ -1,11 +1,7 @@
 const _ = require("lodash");
 const { encrypt } = require("../helpers/encryption");
 
-const {
-  userModule,
-  pickUser,
-  incrementUserId,
-} = require("../models//user.model");
+const { userModule, pickUser, counterModel } = require("../models//user.model");
 
 const userService = {
   async create(users) {
@@ -17,15 +13,14 @@ const userService = {
 
     for (const user of users) {
       // Increment userId manually (assuming it's unique)
-      const lastUser = await userModule.findOne(
-        {},
-        {},
-        { sort: { userId: -1 } }
+      const updatedCounter = await counterModel.findOneAndUpdate(
+        { id: "autoVal" },
+        { $inc: { seq: 1 } },
+        { new: true, upsert: true }
       );
-    
-      const lastUserId =
-        lastUser && typeof lastUser.userId === "number" ? lastUser.userId : 0;
-      user.userId = lastUserId + 1;
+
+      const seqId = updatedCounter.seq;
+      user.userId = seqId;
 
       // Encrypt password if available
       if (user?.password) {
@@ -55,7 +50,9 @@ const userService = {
     return result;
   },
   async delete(id) {
+    // Delete the user
     const result = await userModule.deleteOne({ _id: id });
+
     return result;
   },
   async getOne(id) {
