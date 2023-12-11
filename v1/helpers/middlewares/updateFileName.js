@@ -1,5 +1,3 @@
-
-
 const updateFileName = (field, path) => {
   return (req, res, next) => {
     if (req?.file) {
