@@ -1,0 +1,56 @@
+{
+    "type": {
+        "hotelcategory": [
+            "2 star",
+            "3 star",
+            "4 star",
+            "5 star",
+            "7 star",
+            "unrated"
+        ],
+        "restocategory": [
+            "casual dining",
+            "fine dining",
+            "family style",
+            "fast casual",
+            "fast food",
+            "food trucks, cart, stand",
+            "pop-up",
+            "bar and pubs",
+            "caffee house",
+            "buffets",
+          "ghost restaurant"
+        ]
+    },
+
+    "cuisine": [
+        "indian cuisine",
+        "thai cuisine",
+        "french cuisine",
+        "american cuisine",
+        "chinese cuisine",
+        "japanese cuisine",
+        "italian cuisine"
+      ],
+      "features": [
+        "outdoor seating",
+        "indoor seating",
+        "privatedining",
+        "bar",
+        "ac area",
+        "without ac area",
+        "banque"
+      ],
+
+    "amenities": [
+        "fitness centre",
+        "tennis court",
+        "hot tub",
+        "swimming pool",
+        "parking",
+        "free WiFi",
+        "air conditioning",
+        "spa and wellness centre"    
+    ]   
+
+}
