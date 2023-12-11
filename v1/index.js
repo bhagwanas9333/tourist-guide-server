@@ -5,5 +5,6 @@ router.use("/auth", require("./routes/auth.route"));
 router.use("/places", require("./routes/place.route"));
 router.use("/hotels", require("./routes/hotel.route"));
 router.use("/restaurants", require("./routes/restaurant.route"));
+router.use("/data", require("./routes/data.route"));
 
 module.exports = router;
