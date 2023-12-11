@@ -7,12 +7,13 @@ const hotelrestoSchema = new mongoose.Schema({
   name: { type: String, required: true },
   type: {
     hotelcategory: {
-      type: [String],
+      type:String,
     },
     restocategory: {
-      type: [String],  
+      type:String,  
     },
   },
+  
   streetaddr: String,
   city: String,
   state: String,
