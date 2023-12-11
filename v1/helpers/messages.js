@@ -32,21 +32,18 @@ module.exports = {
   PLACE_FETCH_ALL_FAILED: "Place not available",
 
   //hotel
- HOTEL_CREATE_SUCCESS: "hotel created successfully",
- HOTEL_CREATE_FAILED: "hotel not created successfully",
+  HOTELRESTO_CREATE_SUCCESS: "hotelresto created successfully",
+  HOTELRESTO_CREATE_FAILED: "hotelresto not created successfully",
 
- HOTEL_UPDATE_SUCCESS: "hotel updated successfully",
- HOTEL_UPDATE_FAILED: "hotel not updated successfully",
+  HOTELRESTO_UPDATE_SUCCESS: "hotelresto updated successfully",
+  HOTELRESTO_UPDATE_FAILED: "hotelresto not updated successfully",
 
- HOTEL_DELETE_SUCCESS: "hotel deleted successfully",
- HOTEL_DELETE_FAILED: "hotel not deleted successfully",
+  HOTELRESTO_DELETE_SUCCESS: "hotelresto deleted successfully",
+  HOTELRESTO_DELETE_FAILED: "hotelresto not deleted successfully",
 
- HOTEL_FETCH_ONE_SUCCESS: "hotel fetched successfully",
- HOTEL_FETCH_ONE_FAILED: "hotel not available",
+  HOTELRESTO_FETCH_ONE_SUCCESS: "hotelresto fetched successfully",
+  HOTELRESTO_FETCH_ONE_FAILED: "hotelresto not available",
 
- HOTEL_FETCH_ALL_SUCCESS: "hotel fetched successfully",
- HOTEL_FETCH_ALL_FAILED: "hotel not available",
-
-
-};
-
+  HOTELRESTO_FETCH_ALL_SUCCESS: "hotelresto fetched successfully",
+  HOTELRESTO_FETCH_ALL_FAILED: "hotelresto not available",
+}
