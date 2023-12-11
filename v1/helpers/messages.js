@@ -46,5 +46,4 @@ module.exports = {
 
   HOTELRESTO_FETCH_ALL_SUCCESS: "hotelresto fetched successfully",
   HOTELRESTO_FETCH_ALL_FAILED: "hotelresto not available",
-
 }
