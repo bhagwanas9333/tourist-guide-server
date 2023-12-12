@@ -23,9 +23,16 @@ const placeSchema = new mongoose.Schema({
     },
   ],
   status: Number,
-  pictures: String,
+  pictures: [String],
   createdAt: { type: Date, default: Date.now() },
 });
 
-placeSchema.plugin(Autoincrement, { inc_field: "placeId" });
-module.exports = mongoose.model("Place", placeSchema);
+const countSchema = {
+  id: { type: String },
+  seq: { type: Number },
+};
+
+const countModel = mongoose.model("Count", countSchema);
+const placeModel = mongoose.model("Place", placeSchema);
+
+module.exports = { countModel, placeModel };
