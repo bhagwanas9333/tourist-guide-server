@@ -1,11 +1,22 @@
-const placeModel = require("../models/place.model");
+const { placeModel, countModel } = require("../models/place.model");
 
 const placeService = {
-  async create(place) {
-    if (Array.isArray(place)) {
-      place = [place];
+  async create(places) {
+    if (!Array.isArray(places)) {
+      places = [places];
+      for (const place of places) {
+        // Increment userId manually (assuming it's unique)
+        const count = await countModel.findOneAndUpdate(
+          { id: "autoVal" },
+          { $inc: { seq: 1 } },
+          { new: true, upsert: true }
+        );
+
+        const seqId = count.seq;
+        place.placeId = seqId;
+      }
     }
-    const result = await placeModel.insertMany(place);
+    const result = await placeModel.insertMany(places);
     return result;
   }, //create
   async update(id, place) {
