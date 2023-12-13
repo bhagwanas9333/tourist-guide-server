@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const userSchema = new mongoose.Schema({
   userId: Number,
@@ -16,9 +15,6 @@ const userSchema = new mongoose.Schema({
   role: String,
   createdAt: { type: Date, default: Date.now() },
 });
-
-// Add the mongoose-sequence plugin to the user schema
-userSchema.plugin(AutoIncrement, { inc_field: "userId" });
 
 const userModule = mongoose.model("User", userSchema);
 
@@ -36,4 +32,11 @@ const pickUser = (user) => {
   ]);
 };
 
-module.exports = { userModule, pickUser };
+const counterSchema = {
+  id: { type: String },
+  seq: { type: Number },
+};
+
+const counterModel = mongoose.model("Counter", counterSchema);
+
+module.exports = { userModule, pickUser, counterModel };
