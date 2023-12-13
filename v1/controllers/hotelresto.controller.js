@@ -26,7 +26,7 @@ const hotelrestoCtrl = {
     hotelrestoService
       ?.update(id, data)
       .then((result) => {
-        console.log("result",result);
+        console.log("result", result);
         res
           ?.status(201)
           .send({ message: messages?.HOTELRESTO_UPDATE_SUCCESS, data: result });
@@ -61,7 +61,10 @@ const hotelrestoCtrl = {
       .then((result) => {
         res
           ?.status(201)
-          .send({ message: messages?.HOTELRESTO_FETCH_ONE_SUCCESS, data: result });
+          .send({
+            message: messages?.HOTELRESTO_FETCH_ONE_SUCCESS,
+            data: result,
+          });
       })
       .catch((error) => {
         console.error(error);
@@ -76,7 +79,10 @@ const hotelrestoCtrl = {
       .then((result) => {
         res
           ?.status(201)
-          .send({ message: messages?.HOTELRESTO_FETCH_ALL_SUCCESS, data: result });
+          .send({
+            message: messages?.HOTELRESTO_FETCH_ALL_SUCCESS,
+            data: result,
+          });
       })
       .catch((error) => {
         console.error(error);

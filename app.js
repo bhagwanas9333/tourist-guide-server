@@ -25,6 +25,7 @@ app.use("/api/v1", require("./v1"));
 app.get("/", (req, res) => {
   res.status(200).send("welcome to sever");
 });
+
 app.listen(port, () => {
   console.log(`server is listing on port ${port}`);
 });
