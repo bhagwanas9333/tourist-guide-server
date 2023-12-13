@@ -1,4 +1,4 @@
-,const _ = require("lodash");
+const _ = require("lodash");
 const { encrypt } = require("../helpers/encryption");
 
 const { userModule, pickUser, counterModel } = require("../models//user.model");
@@ -49,13 +49,13 @@ const userService = {
     const result = await userModule.updateOne({ _id: id }, user);
     return result;
   },
-  async delete {
+  async delete(id) {
     // Delete the user
     const result = await userModule.deleteOne({ _id: id });
 
     return result;
   },
-  async getOne {
+  async getOne(id) {
     const result = await userModule.findOne({ _id: id });
     return pickUser(result);
   },
