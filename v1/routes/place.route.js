@@ -7,19 +7,24 @@ const {
   handleGetAll,
 } = require("../controllers/place.contoller");
 const fileUploader = require("../helpers/middlewares/fileUploader");
-const multiFileUploader = require("../helpers/middlewares/multiFileUploader");
-const multiUpdateFileName = require("../helpers/middlewares/multiUpdateFileName");
+const updateFileName = require("../helpers/middlewares/updateFileName");
+// const multiFileUploader = require("../helpers/middlewares/multiFileUploader");
+// const multiUpdateFileName = require("../helpers/middlewares/multiUpdateFileName");
 
 router.post(
   "/",
-  multiFileUploader("places", "pictures"),
-  multiUpdateFileName("pictures", "places"),
+  // multiFileUploader("places", "pictures"),
+  // multiUpdateFileName("pictures", "places"),
+  fileUploader("places").single("pictures"),
+  updateFileName("pictures", "places"),
   handleCreate
 );
 router.put(
   "/:id",
-  multiFileUploader("places", "pictures"),
-  multiUpdateFileName("pictures", "places"),
+  // multiFileUploader("places", "pictures"),
+  // multiUpdateFileName("pictures", "places"),
+  fileUploader("places").single("pictures"),
+  updateFileName("pictures", "places"),
   handleUpdate
 );
 router.delete("/:id", handleDelete);

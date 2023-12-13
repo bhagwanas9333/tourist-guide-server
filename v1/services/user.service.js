@@ -1,29 +1,42 @@
 const _ = require("lodash");
 const { encrypt } = require("../helpers/encryption");
 
-const { userModule, pickUser } = require("../models//user.model");
+const { userModule, pickUser, counterModel } = require("../models//user.model");
 
 const userService = {
-  async create(user) {
-    if (Array.isArray(user)) {
-      // multiple users
-      for (const u of user) {
-        if (u?.password) {
-          const hash = encrypt(u?.password);
-          if (hash) u.password = hash;
-          else delete u.password;
-        }
-      }
-    } else {
-      //single user
+  async create(users) {
+    console.log(users, "user");
+
+    if (!Array.isArray(users)) {
+      users = [users];
+    }
+
+    for (const user of users) {
+      // Increment userId manually (assuming it's unique)
+      const updatedCounter = await counterModel.findOneAndUpdate(
+        { id: "autoVal" },
+        { $inc: { seq: 1 } },
+        { new: true, upsert: true }
+      );
+
+      const seqId = updatedCounter.seq;
+      user.userId = seqId;
+
+      // Encrypt password if available
       if (user?.password) {
-        const hash = encrypt(user?.password);
+        const hash = encrypt(user.password);
         if (hash) user.password = hash;
         else delete user.password;
       }
-      user = [user];
+
+      // Ensure userId is not set manually
+      delete user._id;
     }
-    const result = await userModule.insertMany(user);
+
+    // Insert users into the database
+    const result = await userModule.insertMany(users);
+
+    console.log(result, "result");
     return result;
   }, //create user
   async update(id, user) {
@@ -37,12 +50,14 @@ const userService = {
     return result;
   },
   async delete(id) {
+    // Delete the user
     const result = await userModule.deleteOne({ _id: id });
+
     return result;
   },
   async getOne(id) {
     const result = await userModule.findOne({ _id: id });
-    return result;
+    return pickUser(result);
   },
   async getAll(query) {
     const filter = {};

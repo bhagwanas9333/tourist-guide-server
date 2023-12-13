@@ -27,5 +27,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`severe is listing on port ${port}`);
+  console.log(`server is listing on port ${port}`);
 });
