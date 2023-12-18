@@ -10,18 +10,10 @@ const placeSchema = new mongoose.Schema({
   about: String,
   timeToVisit: String,
   food: String,
-  location: [
-    {
-      lat: Number,
-      long: Number,
-    },
-  ],
-  ratings: [
-    {
-      rate: Number,
-      review: String,
-    },
-  ],
+  lat: Number,
+  long: Number,
+  rate: Number,
+  review: String,
   status: Number,
   pictures: [String],
   createdAt: { type: Date, default: Date.now() },
