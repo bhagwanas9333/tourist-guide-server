@@ -13,12 +13,12 @@ const hotelrestoSchema = new mongoose.Schema({
   state: String,
   pincode: Number,
 
-  // location: [
-  //   {
-  //     lat: Number,
-  //     long: Number,
-  //   },
-  // ],
+  location: [
+    {
+      lat: Number,
+      long: Number,
+    },
+  ],
 
   rating: Number,
   mobile: { type: String, unique: true },
