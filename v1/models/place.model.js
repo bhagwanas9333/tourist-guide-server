@@ -4,8 +4,9 @@ const Autoincrement = require("mongoose-sequence")(mongoose);
 const placeSchema = new mongoose.Schema({
   placeId: Number,
   name: { type: String, required: true },
-  state: String,
+  address: String,
   city: String,
+  state: String,
   category: String,
   about: String,
   timeToVisit: String,
