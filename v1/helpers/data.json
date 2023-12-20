@@ -1,5 +1,8 @@
 {
-  "type": ["hotel", "restaurant"],
+  "type": [
+    "hotel",
+    "restaurant"
+  ],
   "hotelcategory": [
     "2 star",
     "3 star",
@@ -39,7 +42,6 @@
     "without ac area",
     "banque"
   ],
-
   "amenities": [
     "fitness centre",
     "tennis court",
@@ -57,5 +59,108 @@
     "triple room",
     "Suite",
     "Interconnected"
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Popular Destinations",
+      "imageUrl": "https://travelogyindia.b-cdn.net/blog/wp-content/uploads/2014/02/delhi.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Heritage Destinations",
+      "imageUrl": "https://www.planetware.com/photos-large/IND/india-top-attractions-taj-mahal.jpg"
+    },
+    {
+      "id": 3,
+      "name": " Spiritual Destinations",
+      "imageUrl": "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_479585620_20191024174904.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Adventure Destinations",
+      "imageUrl": "https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2022/12/15174503/Bir-Billing-809x455.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Beach Destinations",
+      "imageUrl": "https://www.treebo.com/blog/wp-content/uploads/2017/12/Beach-destinations-in-India_1.jpg"
+    }
+  ],
+  "city": [
+    "Khajjiar",
+    "Manali",
+    "Shimla",
+    "Kasol",
+    "Dalhousie",
+    "Dharamshala",
+    "Bir",
+    "Kashmir Valley",
+    "Ladakh",
+    "Gulmarg",
+    "Rushikesh",
+    "Auli",
+    "Nainital",
+    "Haridwar",
+    "Dehradun",
+    "Varanasi",
+    "Agra",
+    "Mathura",
+    "Jodhpur",
+    "Jaisalmer",
+    "Udaipur",
+    "Ranthambor",
+    "Jaipur",
+    "Pushkar",
+    "Bikaner",
+    "Bharatpur",
+    "Madgaon",
+    "Panji",
+    "Mumbai",
+    "Pune",
+    "Lonavla",
+    "Satara",
+    "Raigad",
+    "Mysore",
+    "Banglore"
+  ],
+  "state": [
+    "Andaman and Nicobar Islands",
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chandigarh",
+    "Chhattisgarh",
+    "Dadra and Nagar Haveli",
+    "Daman and Diu",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jammu and Kashmir",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Ladakh",
+    "Lakshadweep",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Puducherry",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal"
   ]
 }
