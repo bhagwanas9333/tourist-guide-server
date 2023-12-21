@@ -1,8 +1,5 @@
 {
-  "type": [
-    "hotel",
-    "restaurant"
-  ],
+  "type": ["hotel", "restaurant"],
   "hotelcategory": [
     "2 star",
     "3 star",
@@ -63,27 +60,27 @@
   "category": [
     {
       "id": 1,
-      "name": "Popular Destinations",
+      "name": "Popular",
       "imageUrl": "https://travelogyindia.b-cdn.net/blog/wp-content/uploads/2014/02/delhi.jpg"
     },
     {
       "id": 2,
-      "name": "Heritage Destinations",
+      "name": "Heritage",
       "imageUrl": "https://www.planetware.com/photos-large/IND/india-top-attractions-taj-mahal.jpg"
     },
     {
       "id": 3,
-      "name": " Spiritual Destinations",
+      "name": " Spiritual",
       "imageUrl": "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_479585620_20191024174904.jpg"
     },
     {
       "id": 4,
-      "name": "Adventure Destinations",
+      "name": "Adventure",
       "imageUrl": "https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2022/12/15174503/Bir-Billing-809x455.jpg"
     },
     {
       "id": 5,
-      "name": "Beach Destinations",
+      "name": "Beach",
       "imageUrl": "https://www.treebo.com/blog/wp-content/uploads/2017/12/Beach-destinations-in-India_1.jpg"
     }
   ],
