@@ -30,6 +30,7 @@ const hotelrestoSchema = new mongoose.Schema({
   timetoVisit: String,
   amenities: String,
   status: Number,
+  coordinates: [Number],
   pictures: [String],
   createdAt: { type: Date, default: Date.now() },
 });
