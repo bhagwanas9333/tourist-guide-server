@@ -23,10 +23,16 @@ const hotelrestoService = {
     return result;
   }, //getOne
   async getAll(query) {
+    const { type } = query;
+    console.log("typegetall",query);
     const filter = {};
-    const result = await hotelrestoModel.find(filter);
+    if (type) {
+      const typeArr = type?.split(",").filter((V) => V);
+      filter.type = { $in: typeArr };
+      console.log("typeArr",typeArr);  
+    }
+    const result = await hotelrestoModel.find(filter).populate()
     return result;
   }, //getAll
 };
-
 module.exports = hotelrestoService;
