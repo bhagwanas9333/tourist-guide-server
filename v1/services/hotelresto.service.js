@@ -6,8 +6,8 @@ const hotelrestoService = {
       hotelresto = [hotelresto];
     }
     const result = await hotelrestoModel.insertMany(hotelresto);
-    console.log("result",result);
-    
+    console.log("result", result);
+
     return result;
   }, //create
   async update(id, hotelresto) {
@@ -23,15 +23,8 @@ const hotelrestoService = {
     return result;
   }, //getOne
   async getAll(query) {
-    const { type } = query;
-    console.log("typegetall",query);
     const filter = {};
-    if (type) {
-      const typeArr = type?.split(",").filter((V) => V);
-      filter.type = { $in: typeArr };
-      console.log("typeArr",typeArr);  
-    }
-    const result = await hotelrestoModel.find(filter).populate()
+    const result = await hotelrestoModel.find(filter);
     return result;
   }, //getAll
 };
