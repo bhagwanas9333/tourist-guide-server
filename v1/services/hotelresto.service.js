@@ -44,5 +44,4 @@ const hotelrestoService = {
     return result;
   }, //getAll
 };
-
 module.exports = hotelrestoService;

@@ -1,4 +1,6 @@
 const express = require("express");
+// const mongoose = require('mongoose');
+
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config({
@@ -6,6 +8,36 @@ require("dotenv").config({
 });
 
 const app = express();
+
+// mongoose.connect('mongodb://localhost:27017/your-database-name', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+
+// app.post('/api/places/nearby', async (req, res) => {
+//   const { latitude, longitude } = req.body;
+
+//   try {
+//     const places = await Place.find({
+//       location: {
+//         $near: {
+//           $geometry: {
+//             type: 'Point',
+//             coordinates: [longitude, latitude],
+//           },
+//           $maxDistance: 5000, // Maximum distance in meters (adjust as needed)
+//         },
+//       },
+//     });
+
+//     res.json({ places });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
 
 app.use(cors());
 app.use(express.static("uploads"));
