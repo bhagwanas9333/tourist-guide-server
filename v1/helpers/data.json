@@ -55,7 +55,16 @@
     "Twin Bedded rooms",
     "triple room",
     "Suite",
-    "Interconnected"
+    "Interconnected",
+    "Deluxe Room",
+    "Quad Room"
+  ],
+  "table": [
+    "Basic Table Setting",
+    "Informal Table Setting",
+    "Formal Table Setting",
+    "Five-Course Table Setting",
+    "Buffet Table Setting"
   ],
   "category": [
     {
