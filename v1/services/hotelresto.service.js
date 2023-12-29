@@ -43,5 +43,7 @@ const hotelrestoService = {
     const result = await hotelrestoModel.find(filter);
     return result;
   }, //getAll
+
+  
 };
 module.exports = hotelrestoService;

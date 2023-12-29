@@ -55,6 +55,13 @@ const authService = {
     const result = await userModule.findOne({ email, status: 1 });
     return result;
   }, //password reset link
+
+  async booknowLink(email) {
+    //check email exists in database
+    const result = await userModule.findOne({ email, status: 1 });
+    return result;
+  }, //booknowlink
+  
   async validateToken(token) {
     const payload = verifyToken(token);
     if (payload?.id) {

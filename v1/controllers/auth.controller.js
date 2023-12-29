@@ -129,6 +129,7 @@ const autoCtrl = {
         res?.status(500).send({ message: error, error: null });
       });
   }, //handleLogin
+
   async handlePasswordReset(req, res) {
     const { email } = req.body;
     try {
@@ -192,6 +193,7 @@ const autoCtrl = {
       res.status(500).send({ message: "Error generating reset link", error });
     }
   }, //handlePasswordReset
+
 
   async handleTokenValidation(req, res) {
     const { token } = req.body;

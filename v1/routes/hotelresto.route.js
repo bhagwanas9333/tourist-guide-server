@@ -5,9 +5,11 @@ const {
   handleUpdate,
   handleGetOne,
   handleGetAll,
+  handleBookNow,
 } = require("../controllers/hotelresto.controller");
 
 const fileUploader = require("../helpers/middlewares/fileUploader");
+
 const multiFileUploader = require("../helpers/middlewares/multiFileUploader");
 const multiUpdateFileName = require("../helpers/middlewares/multiUpdateFileName");
 
@@ -26,5 +28,6 @@ router.put(
 router.delete("/:id", handleDelete);
 router.get("/:id", handleGetOne);
 router.get("/", handleGetAll);
+router.post("/booknow", handleBookNow);
 
 module.exports = router;
