@@ -5,21 +5,15 @@ const Autoincrement = require("mongoose-sequence")(mongoose);
 const hotelrestoSchema = new mongoose.Schema({
   hotelrestoId: Number,
   name: { type: String, required: true },
+  address:String,
   type: String,
   hotelcategory: String,
   restocategory: String,
   streetaddr: String,
   city: String,
   state: String,
-  pincode: Number,
-
-  // location: [
-  //   {
-  //     lat: Number,
-  //     long: Number,
-  //   },
-  // ],
-
+  lat: Number,
+  long: Number,
   rating: Number,
   mobile: { type: String, unique: true },
   email: { type: String, unique: true },
