@@ -1,10 +1,26 @@
-const hotelrestoModel = require("../models/hotelresto.model");
+const {
+  hotelrestoModel,
+  countingModel,
+} = require("../models/hotelresto.model");
 
 const hotelrestoService = {
   async create(hotelresto) {
-    if (Array.isArray(hotelresto)) {
+    if (!Array.isArray(hotelresto)) {
       hotelresto = [hotelresto];
+
+      for (const h of hotelresto) {
+        // Increment userId manually (assuming it's unique)
+        const count = await countingModel.findOneAndUpdate(
+          { id: "autoVal" },
+          { $inc: { seq: 1 } },
+          { new: true, upsert: true }
+        );
+
+        const seqId = count.seq;
+        h.hotelrestoId = seqId;
+      }
     }
+
     const result = await hotelrestoModel.insertMany(hotelresto);
     console.log("result", result);
 
@@ -27,5 +43,7 @@ const hotelrestoService = {
     const result = await hotelrestoModel.find(filter);
     return result;
   }, //getAll
+
+  
 };
 module.exports = hotelrestoService;
