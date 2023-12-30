@@ -5,6 +5,7 @@ const {
   handlePasswordReset,
   handleRefreshToken,
   handleTokenValidation,
+  handleBookNow,
 } = require("../controllers/auth.controller");
 
 router.post("/login", handleLogin);
