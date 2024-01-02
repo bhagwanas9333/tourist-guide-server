@@ -33,10 +33,51 @@ const placeService = {
     return result;
   }, //getOne
   async getAll(query) {
-    const filter = {};
-    const result = await placeModel.find(filter);
-    return result;
-  }, //getAll
+    const { lat, long } = query;
+    console.log("query", query);
+
+    if (lat) {
+      // const places = await placeModel.aggregate(
+      //   [
+      //     {
+      //       $geoNear: {
+      //         near: "$$pt",
+      //         distanceField: "distance",
+      //         maxDistance: 50000,
+      //         includeLocs: "dist.location",
+      //         spherical: true,
+      //       },
+      //     },
+      //   ],
+      //   {
+      //     let: { pt: [parseFloat(lat), parseFloat(long)] },
+      //   }
+      // );
+      const places = await placeModel.aggregate([
+        {
+          $geoNear: {
+            near: {
+              type: "Point",
+              coordinates: [parseFloat(lat), parseFloat(long)],
+            },
+            distanceField: "dist.calculated",
+            minDistance: 2,
+            //  query: { category: "Parks" },
+            includeLocs: "dist.location",
+            spherical: true,
+          },
+        },
+      ]);
+
+      console.log("places", places);
+
+      return places;
+    } else {
+      const filter = {};
+      const result = await placeModel.find(filter);
+      return result;
+    }
+  },
 };
 
 module.exports = placeService;
