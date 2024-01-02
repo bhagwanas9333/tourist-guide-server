@@ -11,8 +11,10 @@ const placeSchema = new mongoose.Schema({
   about: String,
   timeToVisit: String,
   food: String,
-  lat: Number,
-  long: Number,
+  location: {
+    type: { type: String, enum: ["Point"], required: true },
+    coordinates: { type: [Number], required: true },
+  },
   rate: Number,
   review: String,
   status: Number,
@@ -24,6 +26,8 @@ const countSchema = {
   id: { type: String },
   seq: { type: Number },
 };
+
+placeSchema.index({ location: "2dsphere" });
 
 const countModel = mongoose.model("Count", countSchema);
 const placeModel = mongoose.model("Place", placeSchema);
