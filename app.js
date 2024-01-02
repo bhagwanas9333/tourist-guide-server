@@ -7,11 +7,17 @@ require("dotenv").config({
   path: "./config/.env",
 });
 
+
+
 const app = express();
+
+
 // mongoose.connect('mongodb://localhost:27017/your-database-name', {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
+
+
 // app.post('/api/places/nearby', async (req, res) => {
 //   const { latitude, longitude } = req.body;
 
