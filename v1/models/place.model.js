@@ -27,7 +27,9 @@ const countSchema = {
   seq: { type: Number },
 };
 
+// placeSchema.dropIndexes({ location: "2dsphere" });
 placeSchema.index({ location: "2dsphere" });
+// placeSchema.getIndexes();
 
 const countModel = mongoose.model("Count", countSchema);
 const placeModel = mongoose.model("Place", placeSchema);

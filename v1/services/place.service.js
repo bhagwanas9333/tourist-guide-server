@@ -37,31 +37,15 @@ const placeService = {
     console.log("query", query);
 
     if (lat) {
-      // const places = await placeModel.aggregate(
-      //   [
-      //     {
-      //       $geoNear: {
-      //         near: "$$pt",
-      //         distanceField: "distance",
-      //         maxDistance: 50000,
-      //         includeLocs: "dist.location",
-      //         spherical: true,
-      //       },
-      //     },
-      //   ],
-      //   {
-      //     let: { pt: [parseFloat(lat), parseFloat(long)] },
-      //   }
-      // );
       const places = await placeModel.aggregate([
         {
           $geoNear: {
             near: {
               type: "Point",
-              coordinates: [parseFloat(lat), parseFloat(long)],
+              coordinates: [parseFloat(long), parseFloat(lat)],
             },
             distanceField: "dist.calculated",
-            minDistance: 2,
+            maxDistance: 50000,
             //  query: { category: "Parks" },
             includeLocs: "dist.location",
             spherical: true,
