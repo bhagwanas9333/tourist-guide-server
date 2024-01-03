@@ -5,15 +5,17 @@ const Autoincrement = require("mongoose-sequence")(mongoose);
 const hotelrestoSchema = new mongoose.Schema({
   hotelrestoId: Number,
   name: { type: String, required: true },
-  address:String,
+  address: String,
   type: String,
   hotelcategory: String,
   restocategory: String,
   streetaddr: String,
   city: String,
   state: String,
-  lat: Number,
-  long: Number,
+  location: {
+    type: { type: String, enum: ["Point"], required: true },
+    coordinates: { type: [Number], required: true },
+  },
   rating: Number,
   mobile: { type: String, unique: true },
   email: { type: String, unique: true },
@@ -24,7 +26,7 @@ const hotelrestoSchema = new mongoose.Schema({
   timetoVisit: String,
   amenities: String,
   status: Number,
-  coordinates: [Number],
+  // coordinates: [Number],
   pictures: [String],
   createdAt: { type: Date, default: Date.now() },
 });
@@ -33,6 +35,7 @@ const countingSchema = {
   id: { type: String },
   seq: { type: Number },
 };
+hotelrestoSchema.index({ location: "2dsphere" });
 
 const countingModel = mongoose.model("Counting", countingSchema);
 const hotelrestoModel = mongoose.model("Hotelresto", hotelrestoSchema);
