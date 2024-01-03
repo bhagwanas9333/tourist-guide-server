@@ -90,30 +90,42 @@ const hotelrestoCtrl = {
   }, //handleGetAll
 
   async handleBookNow(req, res) {
-    const { email, name, dateTime, rooms, table, specialRequest, type } =
-      req.body;
+    const {
+      email,
+      name,
+      dateTime,
+      rooms,
+      table,
+      specialRequest,
+      type,
+      subject,
+      message,
+    } = req.body;
     console.log("email", email);
 
     try {
       // send email
       const to = email;
       const from = "bhagwan9282@gmail.com";
-      const subject = "Submit Form for Book Now in Trip Tastic";
+      subject ? "Submit Form for Book Now in Trip Tastic" : subject;
+      message ? "Please enter your message" : message;
       const text = `Dear Customer,
-        Your Form is submited.
+        Your Form is submitted.
         `;
 
-      const html = `
+        const html = `
         <p>Dear Customer,</p>
         <p>Name: ${name}</p>
-        <p>Type: ${type}</p>
         <p>Email: ${email}</p>
-        <p>Date & Time: ${dateTime}</p>
+        ${!subject ? `<p>Type: ${type}</p>
+         <p>Date & Time: ${dateTime}</p>
          ${type == "hotel" ? `<p>Room: ${rooms}</p>` : `<p>Table: ${table}</p>`}
-         <p>Special Request: ${specialRequest}</p>
-        `;
-
-      // Create transporter
+         <p>Special Request: ${specialRequest}</p>`
+        :
+         `<p>Subject: ${subject}</p>
+         <p>Message: ${message}</p>`
+        }
+      `;
       const transporter = createTransportering();
 
       // Send email
@@ -139,7 +151,7 @@ const hotelrestoCtrl = {
       console.error(error);
       res.status(500).send({ message: "Error generating reset link", error });
     }
-  }, //hnadleBookNow
+  }, //handleBookNow
 };
 
 module.exports = hotelrestoCtrl;
