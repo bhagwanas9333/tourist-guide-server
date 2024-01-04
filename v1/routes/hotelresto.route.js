@@ -7,6 +7,7 @@ const {
   handleGetAll,
   handleBookNow,
 } = require("../controllers/hotelresto.controller");
+const authorize = require("../helpers/middlewares/authorization");
 
 const fileUploader = require("../helpers/middlewares/fileUploader");
 
@@ -17,16 +18,18 @@ router.post(
   "/",
   multiFileUploader("hotelresto", "pictures"),
   multiUpdateFileName("pictures", "hotelresto"),
+  authorize(["superadmin"]),
   handleCreate
 );
 router.put(
   "/:id",
   multiFileUploader("hotelresto", "pictures"),
   multiUpdateFileName("pictures", "hotelresto"),
+  authorize(["superadmin"]),
   handleUpdate
 );
-router.delete("/:id", handleDelete);
-router.get("/:id", handleGetOne);
+router.delete("/:id", authorize(["superadmin"]), handleDelete);
+router.get("/:id", authorize(["superadmin"]), handleGetOne);
 router.get("/", handleGetAll);
 router.post("/booknow", handleBookNow);
 
