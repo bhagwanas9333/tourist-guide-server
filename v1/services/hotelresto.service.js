@@ -39,11 +39,34 @@ const hotelrestoService = {
     return result;
   }, //getOne
   async getAll(query) {
-    const filter = {};
-    const result = await hotelrestoModel.find(filter);
-    return result;
-  }, //getAll
+    const { lat, long } = query;
+    console.log("query", query);
 
-  
+    if (lat) {
+      const hotels = await hotelrestoModel.aggregate([
+        {
+          $geoNear: {
+            near: {
+              type: "Point",
+              coordinates: [parseFloat(long), parseFloat(lat)],
+            },
+            distanceField: "dist.calculated",
+            maxDistance: 50000,
+            //  query: { category: "Parks" },
+            includeLocs: "dist.location",
+            spherical: true,
+          },
+        },
+      ]);
+
+      console.log("hotels", hotels);
+
+      return hotels;
+    } else {
+      const filter = {};
+      const result = await hotelrestoModel.find(filter);
+      return result;
+    }
+  },
 };
 module.exports = hotelrestoService;
