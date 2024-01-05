@@ -34,8 +34,6 @@ const placeService = {
   }, //getOne
   async getAll(query) {
     const { lat, long } = query;
-    // console.log("query", query);
-
     if (lat) {
       const places = await placeModel.aggregate([
         {
@@ -46,14 +44,11 @@ const placeService = {
             },
             distanceField: "dist.calculated",
             maxDistance: 50000,
-            //  query: { category: "Parks" },
             includeLocs: "dist.location",
             spherical: true,
           },
         },
       ]);
-
-      console.log("places", places);
 
       return places;
     } else {

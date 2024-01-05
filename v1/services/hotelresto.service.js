@@ -40,7 +40,6 @@ const hotelrestoService = {
   }, //getOne
   async getAll(query) {
     const { lat, long } = query;
-    // console.log("query", query);
 
     if (lat) {
       const hotels = await hotelrestoModel.aggregate([
