@@ -31,7 +31,7 @@ router.put(
   handleUpdate
 );
 router.delete("/:id", authorize(["superadmin"]), handleDelete);
-router.get("/:id", authorize(["superadmin"]), handleGetOne);
+router.get("/:id", handleGetOne);
 router.get("/", handleGetAll);
 
 module.exports = router;
