@@ -34,6 +34,7 @@ const placeService = {
   }, //getOne
   async getAll(query) {
     const { lat, long } = query;
+    // consolee.log("query",query)
     if (lat) {
       const places = await placeModel.aggregate([
         {
