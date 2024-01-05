@@ -6,6 +6,7 @@ const {
   handleGetOne,
   handleGetAll,
 } = require("../controllers/place.contoller");
+const authorize = require("../helpers/middlewares/authorization");
 // const fileUploader = require("../helpers/middlewares/fileUploader");
 // const updateFileName = require("../helpers/middlewares/updateFileName");
 const multiFileUploader = require("../helpers/middlewares/multiFileUploader");
@@ -17,6 +18,7 @@ router.post(
   multiUpdateFileName("pictures", "places"),
   // fileUploader("places").single("pictures"),
   // updateFileName("pictures", "places"),
+  authorize(["superadmin"]),
   handleCreate
 );
 router.put(
@@ -25,10 +27,11 @@ router.put(
   multiUpdateFileName("pictures", "places"),
   // fileUploader("places").single("pictures"),
   // updateFileName("pictures", "places"),
+  authorize(["superadmin"]),
   handleUpdate
 );
-router.delete("/:id", handleDelete);
-router.get("/:id", handleGetOne);
+router.delete("/:id", authorize(["superadmin"]), handleDelete);
+router.get("/:id", authorize(["superadmin"]), handleGetOne);
 router.get("/", handleGetAll);
 
 module.exports = router;

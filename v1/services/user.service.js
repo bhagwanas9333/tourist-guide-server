@@ -60,7 +60,7 @@ const userService = {
     return pickUser(result);
   },
   async getAll(query) {
-    const filter = {};
+    const filter = {role: "admin" };
     const result = await userModule.find(filter);
     console.log("res:", result);
 
