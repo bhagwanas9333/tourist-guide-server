@@ -40,7 +40,6 @@ const hotelrestoService = {
   }, //getOne
   async getAll(query) {
     const { lat, long } = query;
-    console.log("query", query);
 
     if (lat) {
       const hotels = await hotelrestoModel.aggregate([
@@ -52,15 +51,11 @@ const hotelrestoService = {
             },
             distanceField: "dist.calculated",
             maxDistance: 50000,
-            //  query: { category: "Parks" },
             includeLocs: "dist.location",
             spherical: true,
           },
         },
       ]);
-
-      console.log("hotels", hotels);
-
       return hotels;
     } else {
       const filter = {};
