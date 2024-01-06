@@ -18,17 +18,19 @@ router.post(
   "/",
   multiFileUploader("hotelresto", "pictures"),
   multiUpdateFileName("pictures", "hotelresto"),
-  authorize(["superadmin"]),
+  // authorize(["superadmin"]),
   handleCreate
 );
 router.put(
   "/:id",
   multiFileUploader("hotelresto", "pictures"),
   multiUpdateFileName("pictures", "hotelresto"),
-  authorize(["superadmin"]),
+  // authorize(["superadmin"]),
   handleUpdate
 );
-router.delete("/:id", authorize(["superadmin"]), handleDelete);
+router.delete("/:id",
+  // authorize(["superadmin"]),
+  handleDelete);
 router.get("/:id", handleGetOne);
 router.get("/", handleGetAll);
 router.post("/booknow", handleBookNow);

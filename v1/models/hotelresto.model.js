@@ -13,8 +13,14 @@ const hotelrestoSchema = new mongoose.Schema({
   city: String,
   state: String,
   location: {
-    type: { type: String, enum: ["Point"], required: true },
-    coordinates: { type: [Number], required: true },
+    type: {
+      type: String, enum: ["Point"],
+      // required: true
+    },
+    coordinates: {
+      type: [Number],
+      // required: true
+    },
   },
   rating: Number,
   mobile: { type: String, unique: true },
