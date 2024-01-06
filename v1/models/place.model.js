@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const Autoincrement = require("mongoose-sequence")(mongoose);
+// const Autoincrement = require("mongoose-sequence")(mongoose);
 const placeSchema = new mongoose.Schema({
   placeId: Number,
   name: { type: String, required: true },
