@@ -51,11 +51,15 @@ const hotelrestoService = {
             },
             distanceField: "dist.calculated",
             maxDistance: 50000,
+            //  query: { category: "Parks" },
             includeLocs: "dist.location",
             spherical: true,
           },
         },
       ]);
+
+      console.log("hotels", hotels);
+
       return hotels;
     } else {
       const filter = {};
